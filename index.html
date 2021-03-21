@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Новостное агентсво</title>
+    <link type="text/css" rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div id="black-bar">
+        <div class="fixed-container">
+            Самые <a href="#">свежие новости</a> в реальном времени
+            <div id="datetime"></div>
+        </div>
+        <script type="text/javascript">
+            /* функция добавления ведущих нулей */
+            /* (если число меньше десяти, перед числом добавляем ноль) */
+            function zero_first_format(value) {
+                if (value < 10) {
+                    value = '0' + value;
+                }
+                return value;
+            }
+
+            /* функция получения текущей даты и времени */
+            function date_time() {
+                var current_datetime = new Date();
+                var day = zero_first_format(current_datetime.getDate());
+                var month = zero_first_format(current_datetime.getMonth() + 1);
+                var year = current_datetime.getFullYear();
+                var hours = zero_first_format(current_datetime.getHours());
+                var minutes = zero_first_format(current_datetime.getMinutes());
+                var seconds = zero_first_format(current_datetime.getSeconds());
+
+                return day + "." + month + "." + year + " " + hours + ":" + minutes + ":" + seconds;
+            }
+
+            /* выводим текущую дату и время на сайт в блок с id "current_date_time_block" */
+            document.getElementById('datetime').innerHTML = date_time();
+
+            setInterval(function() {
+                document.getElementById('datetime').innerHTML = date_time();
+            }, 500);
+        </script>
+
+    </div>
+    <div id="header">
+        <div class="fixed-container">
+            <img id="logo" src="img/logo.png">
+            <img id="weather" src="img/weather.png">
+            <div id="temp">+32 &#176;С</div>
+            <form>
+                <input id="search" class="placeholder" type="search" name="search" placeholder="Поиск по сайту">
+
+            </form>
+
+        </div>
+    </div>
+
+    <div id="menu-container">
+        <div class="fixed-container">
+            <a href="#">Главная</a> &nbsp;/&nbsp; <a href="#">Политика</a> &nbsp;/&nbsp; <a href="#">Общество</a> &nbsp;/&nbsp; <a href="#">Экономика</a> &nbsp;/&nbsp; <a href="#">В мире</a> &nbsp;/&nbsp; <a href="#">Проишествия</a> &nbsp;/&nbsp; <a href="#">Спорт</a> &nbsp;/&nbsp; <a href="#">Наука</a> &nbsp;/&nbsp; <a href="#">Туризм</a>
+        </div>
+    </div>
+    <div id="central-container">
+        <div class="fixed-container">
+            <div id="column-left">
+                <h2>Новости дня</h2>
+                <div class="news-item">
+                    <div class="news-item-text">Кот Ахилл предсказал победу российской сборной над Египтом на ЧМ-2018 </div>
+                    <div class="news-item-props">
+                        <a href="#">/ЧМ по футболу</a>
+                        <div class="news-time">10:45</div>
+                        <div class="news-comments-count">17</div>
+                    </div>
+
+                </div>
+                <div class="news-item">
+                    <div class="news-item-text">"Нафтогаз": суд разрешил заморозить активы "Газпрома" в Великобритании </div>
+                    <div class="news-item-props">
+                        <a href="#">/Политика</a>
+                        <div class="news-time">10:45</div>
+                        <div class="news-comments-count">13</div>
+                    </div>
+
+
+                </div>
+                <div class="news-item">
+                    <div class="news-item-text">Минтранс предписал оборудовать общественный транспорт кондиционерами </div>
+                    <div class="news-item-props">
+                        <a href="#">/Транспорт</a>
+                        <div class="news-time">10:45</div>
+                        <div class="news-comments-count">25</div>
+                    </div>
+
+                </div>
+                <div class="news-item">
+                    <div class="news-item-text">Летние кафе Москвы временно закроются из-за непогоды</div>
+                    <div class="news-item-props">
+                        <a href="#">/Погода</a>
+                        <div class="news-time">10:45</div>
+                        <div class="news-comments-count">7</div>
+                    </div>
+
+                </div>
+                <div class="news-item">
+                    <div class="news-item-text">Комплексное благоустройство Щелковского шоссе завершится в июне </div>
+                    <div class="news-item-props">
+                        <a href="#">/Транспорт</a>
+                        <div class="news-time">10:45</div>
+                        <div class="news-comments-count">9</div>
+                    </div>
+
+                </div>
+                <div class="news-item">
+                    <div class="news-item-text">В Москве назвали самое популярное мороженое у болельщиков ЧМ-2018 </div>
+                    <div class="news-item-props">
+                        <a href="#">/ЧМ по футболу</a>
+                        <div class="news-time">10:45</div>
+                        <div class="news-comments-count">1</div>
+                    </div>
+
+                </div>
+                <div class="news-item">
+                    <div class="news-item-text">
+                        <button id="changeButton">Change!</button> 
+                    </div>
+                </div>
+            </div>
+            <div id="column-center">
+
+                <div class="news-krim"></div>
+                <div class="container-flex">
+                    <div class="left-news">
+                        <div class="news-img1"></div>
+                        <div class="news-item-center">
+                            <div class="news-item-text-center">Алексей Навальный объявил акцию против пенсионной реформы 1 июля</div>
+                            <div class="news-item-props">
+                                <a href="#">/Политика</a>
+                                <div class="news-time-center">10:45</div>
+                                <div class="news-comments-count-center">1</div>
+                            </div>
+                        </div>
+                        <div class="news-img2"></div>
+                        <div class="news-item-center">
+                            <div class="news-item-text-center">В России заработал стриминговый сервис YouTube</div>
+                            <div class="news-item-props">
+                                <a href="#">/Интернет</a>
+                                <div class="news-time-center">11:17</div>
+                                <div class="news-comments-count-center">43</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-news">
+                        <div class="news-img3"></div>
+                        <div class="news-item-center">
+                            <div class="news-item-text-center">Дума увеличила пошлины за выдачу загранпаспортов и водительских прав для отдельных категорий</div>
+                            <div class="news-item-props">
+                                <a href="#">/Общество</a>
+                                <div class="news-time-center">12:33</div>
+                                <div class="news-comments-count-center">36</div>
+                            </div>
+                        </div>
+                        <div class="news-img4"></div>
+                        <div class="news-item-center">
+                            <div class="news-item-text-center">Кейн признан лучшим игроком матча ЧМ-2018 Тунис - Англия</div>
+                            <div class="news-item-props">
+                                <a href="#">/Спорт</a>
+                                <div class="news-time-center">12:33</div>
+                                <div class="news-comments-count-center">36</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div id="column-right">
+                <img src="img/banner-1.png">
+                <img src="img/banner-2.png">
+            </div>
+            <div class="fixed-container">
+                <div id="special-news">
+                    <div class="container-flex">
+                        <div class="base1">
+                            <div class="car-img1"></div>
+                        </div>
+
+
+                        <div class="base2">
+                            <h2>Самые читаемые новости</h2>
+                            <div class="news-item">
+                                <div class="news-item-text-bottom">В Турции пообещали найти альтернативу из-за отказа США поставить F-35</div>
+                                <div class="news-item-props">
+                                    <a href="#">/Политика</a>
+                                    <div class="news-time">11:38</div>
+                                    <div class="news-comments-count">20</div>
+                                </div>
+
+                            </div>
+                            <div class="news-item">
+                                <div class="news-item-text-bottom">Назван минимальный доход для причисления к среднему классу</div>
+                                <div class="news-item-props">
+                                    <a href="#">/Политика</a>
+                                    <div class="news-time">11:39</div>
+                                    <div class="news-comments-count">8</div>
+                                </div>
+
+                            </div>
+                            <div class="news-item">
+                                <div class="news-item-text-bottom">Пекин обвинил Вашингтон в развязывании торговой войны</div>
+                                <div class="news-item-props">
+                                    <a href="#">/Политика</a>
+                                    <div class="news-time">9:36</div>
+                                    <div class="news-comments-count">32</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="black-bar-footer">
+        <div class="fixed-container">
+            <div class="footer-news">
+                <div class="footer-item">Главная<br>Политика<br>Общество<br>Экономика<br>В мире</div>
+            </div>
+            <div class="footer-news"></div>
+            <div class="footer-news"></div>
+
+        </div>
+    </div>
+</body></html>
